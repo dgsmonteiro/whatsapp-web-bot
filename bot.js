@@ -15,25 +15,37 @@
 
 	const jokeList = [
 		`
-		Husband and Wife had a Fight.
-		Wife called Mom : He fought with me again,
-		I am coming to you.
-		Mom : No beta, he must pay for his mistake,
-		I am comming to stay with U!`,
+		Um garotinho folheia a bíblia da família. De repente, um objeto cai de dentro do Livro Sagrado. O menino pega o objeto e dá uma olhada nele: Trata-se de uma folha seca que estava pressionada entre as páginas.
+		- Mãe, olhe só o que eu achei!
+		- O que é, meu filho?
+		Maravilhado, o menino responde:
+		- Acho que é a cueca do Adão!`,
 
 		`
-		Husband: Darling, years ago u had a figure like Coke bottle.
-		Wife: Yes darling I still do, only difference is earlier it was 300ml now it's 1.5 ltr.`,
+		- É formalidade, sogrão, pura formalidade. Mas estou aqui para pedir a mão de sua filha em casamento - diz o futuro genro.
+		- Formalidade nada. Pedir a mão é um gesto importante, familiar. Quem falou que é uma formalidade?
+		- O ginecologista da sua filha, sogrão.`,
 
 		`
-		God created the earth, 
-		God created the woods, 
-		God created you too, 
-		But then, even God makes mistakes sometimes!`,
+		Numa pequena cidade do interior de RS, uma mulher entra em uma farmácia e fala ao farmacêutico:
+		- Por favor, quero comprar arsênico.
+
+		- Mas... não posso vender isso ASSIM! Qual é a finalidade?
+
+		- Matar meu marido!!
+		- Pra este fim.... piorou... não posso vender!!!
+		- A mulher abre a bolsa e tira uma fotografia do marido, transando com a mulher do farmacêutico.
+
+		- Ah bom!... COM RECEITA TUDO BEM!!!`,
 
 		`
-		What is a difference between a Kiss, a Car and a Monkey? 
-		A kiss is so dear, a car is too dear and a monkey is U dear.`
+		- Mamãe, posso usar o seu vestido?
+		- Não!
+		- Mamãe, posso usar a sua combinação?
+		- Não!
+		- Mamãe, posso então usar o seu batom? Eu já tenho quatorze anos!
+		E a mãe finaliza:
+		- Não, não e não! E vê se não me enche o saco! Eu tenho muito o que fazer, Jorginho!`
 	]
 
 
@@ -227,24 +239,37 @@
 
 		// what to answer back?
 		let sendText
-
-		if (lastMsg.toUpperCase().indexOf('@HELP') > -1){
+		if (lastMsg.toUpperCase().indexOf('@ROLE') > -1){
 			sendText = `
-				Cool ${title}! Some commands that you can send me:
-
-				1. *@TIME*
-				2. *@JOKE*`
+			Poxa, eu ando meio impedido de fazer rolê, a Maria ainda não pode sair de casa.
+			De qualquer forma eu fico muito honrado pelo seu convite, mas o que acha de me fazer uma visita?`;
 		}
 
-		if (lastMsg.toUpperCase().indexOf('@TIME') > -1){
+		if (lastMsg.toUpperCase().indexOf('@AJUDA') > -1){
 			sendText = `
-				Don't you have a clock, dude?
-
-				*${new Date()}*`
+			Legal ${title}! Aqui estão alguns comandos que posso responder:
+			
+			*hora* - Se quiser saber que horas são
+			*piada* - Se quiser que eu te conte algo engraçado
+			*role* - Se quiser me chamar para sair`
 		}
 
-		if (lastMsg.toUpperCase().indexOf('@JOKE') > -1){
+		if (lastMsg.toUpperCase().indexOf('@HORA') > -1){
+			sendText = `
+			Você não tem um relógio cara?
+			*${new Date()}*`
+		}
+
+		if (lastMsg.toUpperCase().indexOf('@PIADA') > -1){
 			sendText = jokeList[rand(jokeList.length - 1)];
+		}
+
+
+		if (lastMsg.toUpperCase().indexOf('OI') > -1 || lastMsg.toUpperCase().indexOf('OLA') > -1 || lastMsg.toUpperCase().indexOf('OLÁ') > -1){
+			sendText = `Tudo bem com você ${title}?
+			Estou um pouco ocupado agora, mas construi um robô para compensar minha indisponibilidade.
+			
+			Para falar com ele coloque um @ antes da palavra, se você quiser saber o que ele pode fazer envie *ajuda*`
 		}
 		
 		// that's sad, there's not to send back...
