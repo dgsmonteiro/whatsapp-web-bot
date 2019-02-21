@@ -53,6 +53,72 @@
 	// FUNCTIONS
 	//
 
+	//format date
+	function strftime(sFormat, date) {
+		if (!(date instanceof Date)) date = new Date();
+		var nDay = date.getDay(),
+		  nDate = date.getDate(),
+		  nMonth = date.getMonth(),
+		  nYear = date.getFullYear(),
+		  nHour = date.getHours(),
+		  aDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+		  aMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		  aDayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
+		  isLeapYear = function() {
+			return (nYear%4===0 && nYear%100!==0) || nYear%400===0;
+		  },
+		  getThursday = function() {
+			var target = new Date(date);
+			target.setDate(nDate - ((nDay+6)%7) + 3);
+			return target;
+		  },
+		  zeroPad = function(nNum, nPad) {
+			return ('' + (Math.pow(10, nPad) + nNum)).slice(1);
+		  };
+		return sFormat.replace(/%[a-z]/gi, function(sMatch) {
+		  return {
+			'%a': aDays[nDay].slice(0,3),
+			'%A': aDays[nDay],
+			'%b': aMonths[nMonth].slice(0,3),
+			'%B': aMonths[nMonth],
+			'%c': date.toUTCString(),
+			'%C': Math.floor(nYear/100),
+			'%d': zeroPad(nDate, 2),
+			'%e': nDate,
+			'%F': date.toISOString().slice(0,10),
+			'%G': getThursday().getFullYear(),
+			'%g': ('' + getThursday().getFullYear()).slice(2),
+			'%H': zeroPad(nHour, 2),
+			'%I': zeroPad((nHour+11)%12 + 1, 2),
+			'%j': zeroPad(aDayCount[nMonth] + nDate + ((nMonth>1 && isLeapYear()) ? 1 : 0), 3),
+			'%k': '' + nHour,
+			'%l': (nHour+11)%12 + 1,
+			'%m': zeroPad(nMonth + 1, 2),
+			'%M': zeroPad(date.getMinutes(), 2),
+			'%p': (nHour<12) ? 'AM' : 'PM',
+			'%P': (nHour<12) ? 'am' : 'pm',
+			'%s': Math.round(date.getTime()/1000),
+			'%S': zeroPad(date.getSeconds(), 2),
+			'%u': nDay || 7,
+			'%V': (function() {
+					var target = getThursday(),
+					  n1stThu = target.valueOf();
+					target.setMonth(0, 1);
+					var nJan1 = target.getDay();
+					if (nJan1!==4) target.setMonth(0, 1 + ((4-nJan1)+7)%7);
+					return zeroPad(1 + Math.ceil((n1stThu-target)/604800000), 2);
+				  })(),
+			'%w': '' + nDay,
+			'%x': date.toLocaleDateString(),
+			'%X': date.toLocaleTimeString(),
+			'%y': ('' + nYear).slice(2),
+			'%Y': nYear,
+			'%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
+			'%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1')
+		  }[sMatch] || sMatch;
+		});
+	  }
+
 	// Get random value between a range
 	function rand(high, low = 0) {
 		return Math.floor(Math.random() * (high - low + 1) + low);
@@ -137,8 +203,8 @@
 
 	// Call the main function again
 	const goAgain = (fn, sec) => {
-		// const chat = document.querySelector('div.chat:not(.unread)')
-		// selectChat(chat)
+		 //const chat = document.querySelector('div.chat:not(.unread)')
+		 //selectChat(chat)
 		setTimeout(fn, sec * 1000)
 	}
 
@@ -219,7 +285,7 @@
 		}
 		
 		if (!processLastMsgOnChat && (chats.length == 0 || !chat)) {
-			console.log(new Date(), 'nothing to do now... (1)', chats.length, chat);
+			console.log(strftime('%d/%m/%Y %H:%M'), 'nada para fazer agora... (1)', chats.length, chat ? chat : ' ');
 			return goAgain(start, 3);
 		}
 
@@ -227,13 +293,14 @@
 		var title;
 		if (!processLastMsgOnChat){
 			title = getElement("chat_title",chat).title + '';
+			console.log(title, 'title');
 			lastMsg = (getElement("chat_lastmsg", chat) || { innerText: '' }).innerText.trim(); //.last-msg returns null when some user is typing a message to me
 		} else {
 			title = getElement("selected_title").title;
 		}
 		// avoid sending duplicate messaegs
 		if (ignoreLastMsg[title] && (ignoreLastMsg[title]) == lastMsg) {
-			console.log(new Date(), 'nothing to do now... (2)', title, lastMsg);
+			console.log(strftime('%d/%m/%Y %H:%M'), 'nada para fazer agora... (2)', title, lastMsg);
 			return goAgain(() => { start(chats, cnt + 1) }, 0.1);
 		}
 
@@ -244,20 +311,46 @@
 			Poxa, eu ando meio impedido de fazer rolê, a Maria ainda não pode sair de casa.
 			De qualquer forma eu fico muito honrado pelo seu convite, mas o que acha de me fazer uma visita?`;
 		}
+		if (lastMsg.toUpperCase().indexOf('@COBRANCA') > -1){
+			sendText = `
+			Procure o Abreu`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('@DESENVOLVIMENTO') > -1){
+			sendText = `
+			Que legal, me conte um pouco mais do seu projeto que eu retornarei com uma proposta assim que possível`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('@SUPORTE') > -1){
+			sendText = `
+			To de folga`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('@AULA') > -1){
+			sendText = `
+			Estudar é sempre muito importante, posso te passar um pouco do conhecimento que obtive durante a vida.
+			Por favor, me fale um pouco mais sobre o que quer aprender e quais seus horários livres que eu retornarei com uma proposta assim que possível`;
+		}
 
 		if (lastMsg.toUpperCase().indexOf('@AJUDA') > -1){
 			sendText = `
-			Legal ${title}! Aqui estão alguns comandos que posso responder:
+			Legal ${title}, que bom que você optou pela praticidade da tecnologia! 
+			Eu sou o assistente pessoal do Douglas e para falar comigo, sempre coloque um @ antes do comando que você deseja que eu faça, assim como fez com *ajuda*.
+			Aqui estão alguns comandos que posso responder:
 			
 			*hora* - Se quiser saber que horas são
 			*piada* - Se quiser que eu te conte algo engraçado
-			*role* - Se quiser me chamar para sair`
+			*role* - Se quiser me chamar para sair
+			*cobranca* - Se eu estou te devendo e precisa me cobrar algo
+			*desenvolvimento* - Se você precisa de um app ou um site
+			*suporte* - Se você precisa de ajuda no uso de alguma ferramenta
+			*aula* - Se você deseja agendar alguma aula comigo`
 		}
 
 		if (lastMsg.toUpperCase().indexOf('@HORA') > -1){
 			sendText = `
 			Você não tem um relógio cara?
-			*${new Date()}*`
+			Agora são *${strftime('%H:%M')}*`
 		}
 
 		if (lastMsg.toUpperCase().indexOf('@PIADA') > -1){
@@ -265,33 +358,49 @@
 		}
 
 
-		if (lastMsg.toUpperCase().indexOf('OI') > -1 || lastMsg.toUpperCase().indexOf('OLA') > -1 || lastMsg.toUpperCase().indexOf('OLÁ') > -1){
-			sendText = `Tudo bem com você ${title}?
-			Estou um pouco ocupado agora, mas construi um robô para compensar minha indisponibilidade.
+		if (lastMsg.toUpperCase().indexOf('OI') > -1 
+		|| lastMsg.toUpperCase().indexOf('OLA') > -1 
+		|| lastMsg.toUpperCase().indexOf('OLÁ') > -1
+		|| lastMsg.toUpperCase().indexOf('BOM DIA') > -1
+		|| lastMsg.toUpperCase().indexOf('BOA TARDE') > -1
+		|| lastMsg.toUpperCase().indexOf('BOA NOITE') > -1
+		|| lastMsg.toUpperCase().indexOf('E AÍ') > -1
+		|| lastMsg.toUpperCase().indexOf('E AI') > -1
+		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
+			sendText = `Hey ${title}
+Tudo bem com você?
+Estou um pouco ocupado agora.
+Mas já que veio até aqui, não quero te deixar na mão
+Você pode deixar um recado ou pedir ajuda ao meu assistente para resolver seu problema agora.
 			
-			Para falar com ele coloque um @ antes da palavra, se você quiser saber o que ele pode fazer envie *ajuda*`
+Para saber o que ele pode fazer envie *@ajuda*, mas para te incentivar pode deixar que eu mesmo envio.`
 		}
 		
 		// that's sad, there's not to send back...
 		if (!sendText) {
 			ignoreLastMsg[title] = lastMsg;
-			console.log(new Date(), 'new message ignored -> ', title, lastMsg);
+			console.log(strftime('%d/%m/%Y %H:%M'), 'nova mensagem ignorada -> ', title, lastMsg);
 			return goAgain(() => { start(chats, cnt + 1) }, 0.1);
 		}
 
-		console.log(new Date(), 'new message to process, uhull -> ', title, lastMsg);
+		console.log(strftime('%d/%m/%Y %H:%M'), 'nova mensagem para processar, uhull -> ', title, lastMsg);
 
 		// select chat and send message
-		if (!processLastMsgOnChat){
-			selectChat(chat, () => {
-				sendMessage(chat, sendText.trim(), () => {
+		if (lastMessageOnChat !== sendText) {
+			if (!processLastMsgOnChat){
+				selectChat(chat, () => {
+					sendMessage(chat, sendText.trim(), () => {
+						goAgain(() => { start(chats, cnt + 1) }, 1);
+					});
+				})
+			} else {
+				sendMessage(null, sendText.trim(), () => {
 					goAgain(() => { start(chats, cnt + 1) }, 1);
 				});
-			})
+			}
+
 		} else {
-			sendMessage(null, sendText.trim(), () => {
-				goAgain(() => { start(chats, cnt + 1) }, 1);
-			});
+			console.log('mensagem repetida');
 		}
 	}
 	start();
