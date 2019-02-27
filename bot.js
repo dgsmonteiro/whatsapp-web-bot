@@ -15,18 +15,6 @@
 
 	const jokeList = [
 		`
-		Um garotinho folheia a bíblia da família. De repente, um objeto cai de dentro do Livro Sagrado. O menino pega o objeto e dá uma olhada nele: Trata-se de uma folha seca que estava pressionada entre as páginas.
-		- Mãe, olhe só o que eu achei!
-		- O que é, meu filho?
-		Maravilhado, o menino responde:
-		- Acho que é a cueca do Adão!`,
-
-		`
-		- É formalidade, sogrão, pura formalidade. Mas estou aqui para pedir a mão de sua filha em casamento - diz o futuro genro.
-		- Formalidade nada. Pedir a mão é um gesto importante, familiar. Quem falou que é uma formalidade?
-		- O ginecologista da sua filha, sogrão.`,
-
-		`
 		Numa pequena cidade do interior de RS, uma mulher entra em uma farmácia e fala ao farmacêutico:
 		- Por favor, quero comprar arsênico.
 
@@ -36,16 +24,7 @@
 		- Pra este fim.... piorou... não posso vender!!!
 		- A mulher abre a bolsa e tira uma fotografia do marido, transando com a mulher do farmacêutico.
 
-		- Ah bom!... COM RECEITA TUDO BEM!!!`,
-
-		`
-		- Mamãe, posso usar o seu vestido?
-		- Não!
-		- Mamãe, posso usar a sua combinação?
-		- Não!
-		- Mamãe, posso então usar o seu batom? Eu já tenho quatorze anos!
-		E a mãe finaliza:
-		- Não, não e não! E vê se não me enche o saco! Eu tenho muito o que fazer, Jorginho!`
+		- Ah bom!... COM RECEITA TUDO BEM!!!`
 	]
 
 
@@ -272,7 +251,7 @@
 		
 		var processLastMsgOnChat = false;
 		var lastMsg;
-		
+		console.log(lastMsg);
 		if (!lastMessageOnChat){
 			if (false === (lastMessageOnChat = getLastMsg())){
 				lastMessageOnChat = true; //to prevent the first "if" to go true everytime
@@ -306,74 +285,84 @@
 
 		// what to answer back?
 		let sendText
-		if (lastMsg.toUpperCase().indexOf('@ROLE') > -1){
+		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1){
 			sendText = `
-			Poxa, eu ando meio impedido de fazer rolê, a Maria ainda não pode sair de casa.
-			De qualquer forma eu fico muito honrado pelo seu convite, mas o que acha de me fazer uma visita?`;
+			Que bom que você escolheu fazer com a gente, obrigado pela confiança.
+			Me mande a sua ideia com o tamanho aproximado e a parte do corpo que você deseja tatuar.
+			Tem algumas imagens de referências que possam esclarecer melhor suas ideias?`;
 		}
-		if (lastMsg.toUpperCase().indexOf('@COBRANCA') > -1){
+		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1){
 			sendText = `
-			Procure o Abreu`;
-		}
-		
-		if (lastMsg.toUpperCase().indexOf('@DESENVOLVIMENTO') > -1){
-			sendText = `
-			Que legal, me conte um pouco mais do seu projeto que eu retornarei com uma proposta assim que possível`;
-		}
-		
-		if (lastMsg.toUpperCase().indexOf('@SUPORTE') > -1){
-			sendText = `
-			To de folga`;
-		}
-		
-		if (lastMsg.toUpperCase().indexOf('@AULA') > -1){
-			sendText = `
-			Estudar é sempre muito importante, posso te passar um pouco do conhecimento que obtive durante a vida.
-			Por favor, me fale um pouco mais sobre o que quer aprender e quais seus horários livres que eu retornarei com uma proposta assim que possível`;
-		}
-
-		if (lastMsg.toUpperCase().indexOf('@AJUDA') > -1){
-			sendText = `
-			Legal ${title}, que bom que você optou pela praticidade da tecnologia! 
-			Eu sou o assistente pessoal do Douglas e para falar comigo, sempre coloque um @ antes do comando que você deseja que eu faça, assim como fez com *ajuda*.
-			Aqui estão alguns comandos que posso responder:
+			Para fazer o agendamento é necessário que você faça primeiro um orçamento, se você ainda não fez envie _hashtag (#)_ *orcamento*
 			
-			*hora* - Se quiser saber que horas são
-			*piada* - Se quiser que eu te conte algo engraçado
-			*role* - Se quiser me chamar para sair
-			*cobranca* - Se eu estou te devendo e precisa me cobrar algo
-			*desenvolvimento* - Se você precisa de um app ou um site
-			*suporte* - Se você precisa de ajuda no uso de alguma ferramenta
-			*aula* - Se você deseja agendar alguma aula comigo`
-		}
+			Você terá que escolher um de nossos profissionais para fazer a sua tatuagem:
+			*Gugo*
+			*Eddy*
+			*Andrey*
+			*Gabriela Amorim*
+			*Rogério Shira*
 
-		if (lastMsg.toUpperCase().indexOf('@HORA') > -1){
+			Lembrando que para fazer a reserva do horário é necessário o pagamento de um sinal de R$100,00 que pode ser pago via depósito ou transferência bancária, esse sinal será abatido no valor final da tattoo`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#PIERCING') > -1){
 			sendText = `
-			Você não tem um relógio cara?
-			Agora são *${strftime('%H:%M')}*`
+			Para Piercing não é necessário agendamento, você pode vir direto no Studio de Terça a Sexta das 10h as 17h e aos sábados das 10h as 20h, se você precisa fazer fora desse horário solicite um agendamento.`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#COBERTURA') > -1){
+			sendText = `
+			Para Cobertura de tatuagens, venha diretamente ao Studio para que um de nossos profissionais faça uma avaliação.
+			Não é cobrado nada e nem precisa agendar.
+			Mas de qualquer forma já nos envie uma foto da sua Tatuagem e a ideia que você tem de cobertura.`;
 		}
 
-		if (lastMsg.toUpperCase().indexOf('@PIADA') > -1){
-			sendText = jokeList[rand(jokeList.length - 1)];
+		if (lastMsg.toUpperCase().indexOf('#REFORMA') > -1){
+			sendText = `
+			Para Reforma de tatuagens, nos envie uma foto da tatuagem para avaliarmos o que pode ser feito`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#PROBLEMAS') > -1){
+			sendText = `
+			Se você está com problemas de cicatrização mande uma foto, se for necessários faremos o retoque.
+			O Retoque só pode ser feito após um período de 15 dias, o primeiro não é cobrado e a partir do segundo é cobrado um valor de R$100,00.`;
 		}
 
+		if (lastMsg.toUpperCase().indexOf('#ENDERECO') > -1){
+			sendText = `
+			Nós funcionamos de Terça a Sábado das 10h as 20h.
+			Na Rua João Bueno, 155 Jardim Barbosa - Guarulhos/SP
+			Pra ficar mais fácil, subindo a Avenida Tiradentes passando o Mercado Car vire na primeira a direita`;
+		}
+
+		if (lastMsg.toUpperCase().indexOf('#TELEFONE') > -1){
+			sendText = `
+			O número é 11 2279-4817
+			Ligue de Terça a Sábado das 10h as 20h.`;
+		}
 
 		if (lastMsg.toUpperCase().indexOf('OI') > -1 
 		|| lastMsg.toUpperCase().indexOf('OLA') > -1 
-		|| lastMsg.toUpperCase().indexOf('OLÁ') > -1
+		|| lastMsg.toUpperCase().indexOf('OLÁ') > -1 
+		|| lastMsg.toUpperCase().indexOf('OPA') > -1 
 		|| lastMsg.toUpperCase().indexOf('BOM DIA') > -1
 		|| lastMsg.toUpperCase().indexOf('BOA TARDE') > -1
 		|| lastMsg.toUpperCase().indexOf('BOA NOITE') > -1
 		|| lastMsg.toUpperCase().indexOf('E AÍ') > -1
 		|| lastMsg.toUpperCase().indexOf('E AI') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
-			sendText = `Hey ${title}
-Tudo bem com você?
-Estou um pouco ocupado agora.
-Mas já que veio até aqui, não quero te deixar na mão
-Você pode deixar um recado ou pedir ajuda ao meu assistente para resolver seu problema agora.
-			
-Para saber o que ele pode fazer envie *@ajuda*, mas para te incentivar pode deixar que eu mesmo envio.`
+			sendText = `Que bom que você entrou em contato com a gente
+Eu sou a atendente virtual do Gugo Tattoo e pretendo agilizar o seu atendimento.
+Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+
+*orcamento*
+*agendamento*
+*piercing*
+*cobertura*
+*reforma*
+*problemas*
+*endereco*
+*telefone*`
 		}
 		
 		// that's sad, there's not to send back...
