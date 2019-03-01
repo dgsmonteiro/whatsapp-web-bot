@@ -306,22 +306,37 @@
 
 		// what to answer back?
 		let sendText
-		if (lastMsg.toUpperCase().indexOf('@ROLE') > -1){
+		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1){
 			sendText = `
-			Poxa, eu ando meio impedido de fazer rolê, a Maria ainda não pode sair de casa.
-			De qualquer forma eu fico muito honrado pelo seu convite, mas o que acha de me fazer uma visita?`;
+			O preço da consulta é R$120,00.
+			É muito importante avaliar o andamento do tratamento, por isso fazemos o pacote promocional Consulta + Exame de Bio Impedância por R$150,00`;
 		}
-		if (lastMsg.toUpperCase().indexOf('@COBRANCA') > -1){
+		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1){
 			sendText = `
-			Procure o Abreu`;
-		}
-		
-		if (lastMsg.toUpperCase().indexOf('@DESENVOLVIMENTO') > -1){
-			sendText = `
-			Que legal, me conte um pouco mais do seu projeto que eu retornarei com uma proposta assim que possível`;
+			Acesse o endereço da minha página de agendamentos: http://nutri.tatiane.ntr.br/agendamento`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('@SUPORTE') > -1){
+		if (lastMsg.toUpperCase().indexOf('#SAFRADOMES') > -1){
+			sendText = `
+			Observe as frutas e verduras que são da *Safra do mês* para economizar e comprar produtos de melhor qualidade!
+			Responda uma _hashtag (#)_ com o nome do mês que você quer saber.
+
+
+			*Janeiro*
+*Fevereiro*
+*Março*
+*Abril*
+*Maio*
+*Junho*
+*Julho*
+*Agosto*
+*Setembro*
+*Outubro*
+*Novembro*
+*Dezembro*`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#DICASDANUTRI') > -1){
 			sendText = `
 			To de folga`;
 		}
@@ -366,14 +381,18 @@
 		|| lastMsg.toUpperCase().indexOf('BOA NOITE') > -1
 		|| lastMsg.toUpperCase().indexOf('E AÍ') > -1
 		|| lastMsg.toUpperCase().indexOf('E AI') > -1
+		|| lastMsg.toUpperCase().indexOf('EAI') > -1
+		|| lastMsg.toUpperCase().indexOf('EAE') > -1
+		|| lastMsg.toUpperCase().indexOf('OPA') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
-			sendText = `Hey ${title}
-Tudo bem com você?
-Estou um pouco ocupado agora.
-Mas já que veio até aqui, não quero te deixar na mão
-Você pode deixar um recado ou pedir ajuda ao meu assistente para resolver seu problema agora.
-			
-Para saber o que ele pode fazer envie *@ajuda*, mas para te incentivar pode deixar que eu mesmo envio.`
+			sendText = `Seja Bem Vindo ${title}
+			Que bom que entrou em contato comigo! Sou a atendente virtual da Nutricionista Tatiane Ribeiro e pretendo agilizar o seu atendimento.
+			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+
+			*orcamento*
+			*agendamento*
+			*safraDoMes*
+			*dicasDaNutri*`
 		}
 		
 		// that's sad, there's not to send back...
