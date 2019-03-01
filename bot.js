@@ -285,61 +285,72 @@
 
 		// what to answer back?
 		let sendText
-		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PRODUTOS') > -1){
 			sendText = `
-			Que bom que você escolheu fazer com a gente, obrigado pela confiança.
-			Me mande a sua ideia com o tamanho aproximado e a parte do corpo que você deseja tatuar.
-			Tem algumas imagens de referências que possam esclarecer melhor suas ideias?`;
-		}
-		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1){
-			sendText = `
-			Para fazer o agendamento é necessário que você faça primeiro um orçamento, se você ainda não fez envie _hashtag (#)_ *orcamento*
+			Temos produtos para todos os gostos, confira em nossa loja virtual, acesse https://www.lojaprimestar.com.br/
 			
-			Você terá que escolher um de nossos profissionais para fazer a sua tatuagem:
-			*Gugo*
-			*Eddy*
-			*Andrey*
-			*Gabriela Amorim*
-			*Rogério Shira*
+			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
-			Lembrando que para fazer a reserva do horário é necessário o pagamento de um sinal de R$100,00 que pode ser pago via depósito ou transferência bancária, esse sinal será abatido no valor final da tattoo`;
+			*disponibilidade*
+			*frete*
+			*prazoDeEntrega*
+			*preco*
+			*formasDePagamento*
+			`;
+		}
+		if (lastMsg.toUpperCase().indexOf('#LOJAVIRTUAL') > -1){
+			sendText = `
+			Temos produtos para todos os gostos, confira em nossa loja virtual, acesse https://www.lojaprimestar.com.br/
+			
+			Confira novidades em nossa loja.
+			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+			
+			*promocoes*
+			*formasDePagamento*
+			*problemasComPagamento*`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#PIERCING') > -1){
+		if (lastMsg.toUpperCase().indexOf('#SAC') > -1){
 			sendText = `
-			Para Piercing não é necessário agendamento, você pode vir direto no Studio de Terça a Sexta das 10h as 17h e aos sábados das 10h as 20h, se você precisa fazer fora desse horário solicite um agendamento.`;
+			Nós trabalhamos para que você não tenha nenhum problema com sua compra, caso aconteça estamos aqui para resolver o mais breve possível.
+			
+			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+			
+			*troca*
+			*devolucao*
+			*problemasComPagamento*`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#COBERTURA') > -1){
-			sendText = `
-			Para Cobertura de tatuagens, venha diretamente ao Studio para que um de nossos profissionais faça uma avaliação.
-			Não é cobrado nada e nem precisa agendar.
-			Mas de qualquer forma já nos envie uma foto da sua Tatuagem e a ideia que você tem de cobertura.`;
-		}
+		// if (lastMsg.toUpperCase().indexOf('#COBERTURA') > -1){
+		// 	sendText = `
+		// 	Para Cobertura de tatuagens, venha diretamente ao Studio para que um de nossos profissionais faça uma avaliação.
+		// 	Não é cobrado nada e nem precisa agendar.
+		// 	Mas de qualquer forma já nos envie uma foto da sua Tatuagem e a ideia que você tem de cobertura.`;
+		// }
 
-		if (lastMsg.toUpperCase().indexOf('#REFORMA') > -1){
-			sendText = `
-			Para Reforma de tatuagens, nos envie uma foto da tatuagem para avaliarmos o que pode ser feito`;
-		}
+		// if (lastMsg.toUpperCase().indexOf('#REFORMA') > -1){
+		// 	sendText = `
+		// 	Para Reforma de tatuagens, nos envie uma foto da tatuagem para avaliarmos o que pode ser feito`;
+		// }
 		
-		if (lastMsg.toUpperCase().indexOf('#PROBLEMAS') > -1){
-			sendText = `
-			Se você está com problemas de cicatrização mande uma foto, se for necessários faremos o retoque.
-			O Retoque só pode ser feito após um período de 15 dias, o primeiro não é cobrado e a partir do segundo é cobrado um valor de R$100,00.`;
-		}
+		// if (lastMsg.toUpperCase().indexOf('#PROBLEMAS') > -1){
+		// 	sendText = `
+		// 	Se você está com problemas de cicatrização mande uma foto, se for necessários faremos o retoque.
+		// 	O Retoque só pode ser feito após um período de 15 dias, o primeiro não é cobrado e a partir do segundo é cobrado um valor de R$100,00.`;
+		// }
 
-		if (lastMsg.toUpperCase().indexOf('#ENDERECO') > -1){
-			sendText = `
-			Nós funcionamos de Terça a Sábado das 10h as 20h.
-			Na Rua João Bueno, 155 Jardim Barbosa - Guarulhos/SP
-			Pra ficar mais fácil, subindo a Avenida Tiradentes passando o Mercado Car vire na primeira a direita`;
-		}
+		// if (lastMsg.toUpperCase().indexOf('#ENDERECO') > -1){
+		// 	sendText = `
+		// 	Nós funcionamos de Terça a Sábado das 10h as 20h.
+		// 	Na Rua João Bueno, 155 Jardim Barbosa - Guarulhos/SP
+		// 	Pra ficar mais fácil, subindo a Avenida Tiradentes passando o Mercado Car vire na primeira a direita`;
+		// }
 
-		if (lastMsg.toUpperCase().indexOf('#TELEFONE') > -1){
-			sendText = `
-			O número é 11 2279-4817
-			Ligue de Terça a Sábado das 10h as 20h.`;
-		}
+		// if (lastMsg.toUpperCase().indexOf('#TELEFONE') > -1){
+		// 	sendText = `
+		// 	O número é 11 2279-4817
+		// 	Ligue de Terça a Sábado das 10h as 20h.`;
+		// }
 
 		if (lastMsg.toUpperCase().indexOf('OI') > -1 
 		|| lastMsg.toUpperCase().indexOf('OLA') > -1 
@@ -351,18 +362,13 @@
 		|| lastMsg.toUpperCase().indexOf('E AÍ') > -1
 		|| lastMsg.toUpperCase().indexOf('E AI') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
-			sendText = `Que bom que você entrou em contato com a gente
-Eu sou a atendente virtual do Gugo Tattoo e pretendo agilizar o seu atendimento.
+			sendText = `Obrigado por entrar em contato.
+Me chamo Isabella, sou a atendente virtual da loja Prime Star e estou aqui para agilizar o seu atendimento.
 Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
-*orcamento*
-*agendamento*
-*piercing*
-*cobertura*
-*reforma*
-*problemas*
-*endereco*
-*telefone*`
+*produtos*
+*lojaVirtual*
+*sac*`
 		}
 		
 		// that's sad, there's not to send back...
