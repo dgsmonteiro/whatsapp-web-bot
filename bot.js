@@ -287,7 +287,7 @@
 		let sendText
 		if (lastMsg.toUpperCase().indexOf('#PRODUTOS') > -1){
 			sendText = `
-			Temos produtos para todos os gostos, confira em nossa loja virtual, acesse https://www.lojaprimestar.com.br/
+			AQUI VOCE ENCONTRA O QUE VOCE PROCURA, ME CONTE MAIS O QUE VOCE PRECISA.
 			
 			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
@@ -298,27 +298,72 @@
 			*formasDePagamento*
 			`;
 		}
+		if (lastMsg.toUpperCase().indexOf('#DISPONIBILIDADE') > -1){
+			sendText = `
+			Qual produto você se interessou? Me informe o modelo, cor e numeração, para eu te ajudar.`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#FRETE') > -1){
+			sendText = `
+			Na PRIME STAR os clientes ganham frete grátis para todo o Brasil, consulte condições via SEDEX10 ou Moto Boy`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#FORMASDEPAGAMENTO') > -1){
+			sendText = `
+			Trabalhamos com deposito, transferência ou boleto para os pagamentos a vista, ou parcelamos em até 12x no credito pela PagSeguro ou PayPal, qual seria melhor forma para você?`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#PRECO') > -1){
+			sendText = `
+			Temos o melhor custo benefício do mercado para voce, qual o produto você gostaria de saber o valor?`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#PRAZODEENTREGA') > -1){
+			sendText = `
+			Enviamos dentro de 48h após a aprovação da compra, após o envio, o prazo do correios varia de acordo com o seu CEP, em casos de produtos Exclusivos onde o produto não tem a pronta entrega o prazo de envio é de 15 a 20 dias.`;
+		}
+
 		if (lastMsg.toUpperCase().indexOf('#LOJAVIRTUAL') > -1){
 			sendText = `
-			Temos produtos para todos os gostos, confira em nossa loja virtual, acesse https://www.lojaprimestar.com.br/
+			Voce já conhece o nosso Site? Então acess https://www.lojaprimestar.com.br/
+			La temos produtos para todos os estilos e gostos, caso sua duvida seja outra.
 			
-			Confira novidades em nossa loja.
 			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 			
 			*promocoes*
 			*formasDePagamento*
 			*problemasComPagamento*`;
 		}
+
+		if (lastMsg.toUpperCase().indexOf('#PROBLEMASCOMPAGAMENTO') > -1){
+			sendText = `
+			Se você esta enfrentando algum problema com o pagamento de sua compra, me conte mais sobre o que esta acontecendo?`;
+		}
+
+		if (lastMsg.toUpperCase().indexOf('#PROMOCOES') > -1){
+			sendText = `
+			A PRIME STAR sempre trazendo promoções semanais, quer saber dessa SUPER novidade da semana?`;
+		}
 		
 		if (lastMsg.toUpperCase().indexOf('#SAC') > -1){
 			sendText = `
-			Nós trabalhamos para que você não tenha nenhum problema com sua compra, caso aconteça estamos aqui para resolver o mais breve possível.
-			
+			Temos todos os suportes necessário para você.
+						
 			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 			
 			*troca*
 			*devolucao*
 			*problemasComPagamento*`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#TROCA') > -1){
+			sendText = `
+			Se você esta precisando trocar alguma compra, me informe o ocorrido e qual o produto, para facilitar o procedimento.`;
+		}
+		
+		if (lastMsg.toUpperCase().indexOf('#DEVOLUCAO') > -1){
+			sendText = `
+			Se você esta precisando trocar alguma compra, me informe o ocorrido e qual o produto, para facilitar o procedimento.`;
 		}
 		
 		// if (lastMsg.toUpperCase().indexOf('#COBERTURA') > -1){
@@ -363,7 +408,7 @@
 		|| lastMsg.toUpperCase().indexOf('E AI') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
 			sendText = `Obrigado por entrar em contato.
-Me chamo Isabella, sou a atendente virtual da loja Prime Star e estou aqui para agilizar o seu atendimento.
+Me chamo Isabella, sou a atendente virtual da loja Prime Star e estou aqui para propor o melhor atendimento a você.
 Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
 *produtos*
