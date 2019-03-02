@@ -285,11 +285,11 @@
 
 		// what to answer back?
 		let sendText
-		if (lastMsg.toUpperCase().indexOf('#PRODUTOS') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PRODUTO') > -1 ){
 			sendText = `
 			AQUI VOCE ENCONTRA O QUE VOCE PROCURA, ME CONTE MAIS O QUE VOCE PRECISA.
 			
-			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
 			*disponibilidade*
 			*frete*
@@ -308,7 +308,9 @@
 			Na PRIME STAR os clientes ganham frete grátis para todo o Brasil, consulte condições via SEDEX10 ou Moto Boy se precisar <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="📦" draggable="false" class="b53 emoji wa selectable-text invisible-space copyable-text" data-plain-text="📦" style="background-position: -40px -40px;"> <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😁" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😁" style="background-position: 0px -20px;">`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#FORMASDEPAGAMENTO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#FORMASDEPAGAMENTO') > -1 
+		|| lastMsg.toUpperCase().indexOf('#FORMADEPAGAMENTO') > -1
+		|| lastMsg.toUpperCase().indexOf('#PAGAMENTO') > -1){
 			sendText = `
 			Trabalhamos com deposito, transferência ou boleto para os pagamentos a vista, ou parcelamos em até 12x no credito pela PagSeguro ou PayPal, qual seria melhor forma para você? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="💳" draggable="false" class="b51 emoji wa selectable-text invisible-space copyable-text" data-plain-text="💳" style="background-position: -20px -40px;"><img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😄" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😄" style="background-position: -60px -20px;">`;
 		}
@@ -318,7 +320,9 @@
 			Temos o melhor custo benefício do mercado para voce, qual o produto você gostaria de saber o valor? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="💰" draggable="false" class="b51 emoji wa selectable-text invisible-space copyable-text" data-plain-text="💰" style="background-position: -60px -20px;">`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#PRAZODEENTREGA') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PRAZODEENTREGA') > -1
+		|| lastMsg.toUpperCase().indexOf('#PRAZOENTREGA') > -1
+		||lastMsg.toUpperCase().indexOf('#PRAZO') > -1){
 			sendText = `
 			Enviamos dentro de 48h após a aprovação da compra, após o envio, o prazo do correios varia de acordo com o seu CEP, em casos de produtos Exclusivos onde o produto não tem a pronta entrega o prazo de envio é de 15 a 20 dias. <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="🚚" draggable="false" class="b68 emoji wa selectable-text invisible-space copyable-text" data-plain-text="🚚" style="background-position: 0px -40px;"> <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😁" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😁" style="background-position: 0px -20px;">`;
 		}
@@ -328,19 +332,22 @@
 			Voce já conhece o nosso Site? Então acess https://www.lojaprimestar.com.br/
 			La temos produtos para todos os estilos e gostos, caso sua duvida seja outra.
 			
-			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 			
 			*promocoes*
 			*formasDePagamento*
 			*problemasComPagamento*`;
 		}
 
-		if (lastMsg.toUpperCase().indexOf('#PROBLEMASCOMPAGAMENTO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PROBLEMASCOMPAGAMENTO') > -1
+		|| lastMsg.toUpperCase().indexOf('#PROBLEMASPAGAMENTO') > -1
+		|| lastMsg.toUpperCase().indexOf('#PROBLEMASDEPAGAMENTO') > -1){
 			sendText = `
 			Se você esta enfrentando algum problema com o pagamento de sua compra, me conte mais sobre o que esta acontecendo? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="💸" draggable="false" class="b51 emoji wa selectable-text invisible-space copyable-text" data-plain-text="💸" style="background-position: -20px -60px;">`;
 		}
 
-		if (lastMsg.toUpperCase().indexOf('#PROMOCOES') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PROMOCOES') > -1
+		|| lastMsg.toUpperCase().indexOf('#PROMOCAO') > -1){
 			sendText = `
 			A PRIME STAR sempre está trazendo promoções semanais, quer saber dessa SUPER novidade da semana? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😍" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😍" style="background-position: -40px -60px;">`;
 		}
@@ -349,11 +356,11 @@
 			sendText = `
 			Temos todos os suportes necessário para você.
 						
-			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
-			
-			*troca*
-			*devolucao*
-			*problemasComPagamento*`;
+Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+
+*troca*
+*devolucao*
+*problemasComPagamento*`;
 		}
 		
 		if (lastMsg.toUpperCase().indexOf('#TROCA') > -1){
