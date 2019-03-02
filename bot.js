@@ -305,22 +305,22 @@
 		
 		if (lastMsg.toUpperCase().indexOf('#FRETE') > -1){
 			sendText = `
-			Na PRIME STAR os clientes ganham frete grátis para todo o Brasil, consulte condições via SEDEX10 ou Moto Boy`;
+			Na PRIME STAR os clientes ganham frete grátis para todo o Brasil, consulte condições via SEDEX10 ou Moto Boy se precisar <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="📦" draggable="false" class="b53 emoji wa selectable-text invisible-space copyable-text" data-plain-text="📦" style="background-position: -40px -40px;"> <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😁" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😁" style="background-position: 0px -20px;">`;
 		}
 		
 		if (lastMsg.toUpperCase().indexOf('#FORMASDEPAGAMENTO') > -1){
 			sendText = `
-			Trabalhamos com deposito, transferência ou boleto para os pagamentos a vista, ou parcelamos em até 12x no credito pela PagSeguro ou PayPal, qual seria melhor forma para você?`;
+			Trabalhamos com deposito, transferência ou boleto para os pagamentos a vista, ou parcelamos em até 12x no credito pela PagSeguro ou PayPal, qual seria melhor forma para você? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="💳" draggable="false" class="b51 emoji wa selectable-text invisible-space copyable-text" data-plain-text="💳" style="background-position: -20px -40px;"><img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😄" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😄" style="background-position: -60px -20px;">`;
 		}
 		
 		if (lastMsg.toUpperCase().indexOf('#PRECO') > -1){
 			sendText = `
-			Temos o melhor custo benefício do mercado para voce, qual o produto você gostaria de saber o valor?`;
+			Temos o melhor custo benefício do mercado para voce, qual o produto você gostaria de saber o valor? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="💰" draggable="false" class="b51 emoji wa selectable-text invisible-space copyable-text" data-plain-text="💰" style="background-position: -60px -20px;">`;
 		}
 		
 		if (lastMsg.toUpperCase().indexOf('#PRAZODEENTREGA') > -1){
 			sendText = `
-			Enviamos dentro de 48h após a aprovação da compra, após o envio, o prazo do correios varia de acordo com o seu CEP, em casos de produtos Exclusivos onde o produto não tem a pronta entrega o prazo de envio é de 15 a 20 dias.`;
+			Enviamos dentro de 48h após a aprovação da compra, após o envio, o prazo do correios varia de acordo com o seu CEP, em casos de produtos Exclusivos onde o produto não tem a pronta entrega o prazo de envio é de 15 a 20 dias. <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="🚚" draggable="false" class="b68 emoji wa selectable-text invisible-space copyable-text" data-plain-text="🚚" style="background-position: 0px -40px;"> <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😁" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😁" style="background-position: 0px -20px;">`;
 		}
 
 		if (lastMsg.toUpperCase().indexOf('#LOJAVIRTUAL') > -1){
@@ -337,12 +337,12 @@
 
 		if (lastMsg.toUpperCase().indexOf('#PROBLEMASCOMPAGAMENTO') > -1){
 			sendText = `
-			Se você esta enfrentando algum problema com o pagamento de sua compra, me conte mais sobre o que esta acontecendo?`;
+			Se você esta enfrentando algum problema com o pagamento de sua compra, me conte mais sobre o que esta acontecendo? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="💸" draggable="false" class="b51 emoji wa selectable-text invisible-space copyable-text" data-plain-text="💸" style="background-position: -20px -60px;">`;
 		}
 
 		if (lastMsg.toUpperCase().indexOf('#PROMOCOES') > -1){
 			sendText = `
-			A PRIME STAR sempre trazendo promoções semanais, quer saber dessa SUPER novidade da semana?`;
+			A PRIME STAR sempre está trazendo promoções semanais, quer saber dessa SUPER novidade da semana? <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="😍" draggable="false" class="b61 emoji wa selectable-text invisible-space copyable-text" data-plain-text="😍" style="background-position: -40px -60px;">`;
 		}
 		
 		if (lastMsg.toUpperCase().indexOf('#SAC') > -1){
@@ -408,7 +408,7 @@
 		|| lastMsg.toUpperCase().indexOf('E AI') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
 			sendText = `Obrigado por entrar em contato.
-Me chamo Isabella, sou a atendente virtual da loja Prime Star e estou aqui para propor o melhor atendimento a você.
+Me chamo Isabella, sou a atendente virtual da loja Prime Star e estou aqui para propor o melhor atendimento a você. <img crossorigin="anonymous" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="☺" draggable="false" class="b96 emoji wa selectable-text invisible-space copyable-text" data-plain-text="☺" style="background-position: -40px -20px;">
 Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
 *produtos*
