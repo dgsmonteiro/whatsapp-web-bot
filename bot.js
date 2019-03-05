@@ -287,58 +287,72 @@
 		let sendText
 		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1){
 			sendText = `
-			Que bom que você escolheu fazer com a gente, obrigado pela confiança.
-			Me mande a sua ideia com o tamanho aproximado e a parte do corpo que você deseja tatuar.
-			Tem algumas imagens de referências que possam esclarecer melhor suas ideias?`;
+			Nós somos especialista em desenvolvimento de sistemas e aplicativos.
+			Por favor nos fale um pouco mais sobre seu projeto para avaliarmos.`;
 		}
-		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#CHATBOT') > -1){
 			sendText = `
-			Para fazer o agendamento é necessário que você faça primeiro um orçamento, se você ainda não fez envie _hashtag (#)_ *orcamento*
+			Chega de ficar copiando e colando mensagens padrão, utilize nosso chatbot no whatsapp e melhore sua comunicação com seu cliente.
 			
-			Você terá que escolher um de nossos profissionais para fazer a sua tatuagem:
-			*Gugo*
-			*Eddy*
-			*Andrey*
-			*Gabriela Amorim*
-			*Rogério Shira*
+			
+			Responda com uma _hashtag (#)_ de acordo com a opção desejada
+			*preco*
+			*saberMais*
+			*contratar*`;
+		}
+		if (lastMsg.toUpperCase().indexOf('#PRECO') > -1){
+			sendText = `
+			O valor pode variar de acordo com a quantidade de fluxos e a profundidade de cada um deles.
+			Quanto maior o robô, maior é o preço cobrado na sua criação.
 
-			Lembrando que para fazer a reserva do horário é necessário o pagamento de um sinal de R$100,00 que pode ser pago via depósito ou transferência bancária, esse sinal será abatido no valor final da tattoo`;
+			O valor inical é de R$500,00 que atende a maioria dos casos.
+
+			Pode ser feito em até 2x pelo PagSeguro.
+			
+			NÃO EXISTE NENHUM TIPO DE MENSALIDADE, O CUSTO É SOMENTE PARA IMPLANTAÇÃO`;
+		}
+
+		if (lastMsg.toUpperCase().indexOf('#SABERMAIS') > -1){
+			sendText = `
+			O robô é bem simples, é um códico que fica em loop no Whatsapp Web do Google Chrome, em todas as iterações ele lê a ultima mensagem de cada conversa não lida.
+			Caso a mensagem tenha alguma palavra reservada, ele responde com o texto determinado para aquela palavra, para navegação utilizamos _hashtags (#)_ como palavras chave.
+			
+			Esse robô irá auxilia-lo a responder as perguntas mais frequentes dos seus clientes.
+
+			A licença do código será feita em Código Livre`;
+		}
+
+		if (lastMsg.toUpperCase().indexOf('#CONTRATAR') > -1){
+			sendText = `
+			Que bom que você gostou do meu atendimento e quer implementar um robô como eu no seu negócio.
+
+			Esse robô irá auxilia-lo a responder as perguntas mais frequentes dos seus clientes, então providencie uma lista dessas perguntas para agilizarmos o protótipo.
+
+			Para formalizar a contratação me passe seu nome completo, cpf, endereço e os dados de pagamento que vou processar sua solicitação.`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#PIERCING') > -1){
+		if (lastMsg.toUpperCase().indexOf('#FREELA') > -1){
 			sendText = `
-			Para Piercing não é necessário agendamento, você pode vir direto no Studio de Terça a Sexta das 10h as 17h e aos sábados das 10h as 20h, se você precisa fazer fora desse horário solicite um agendamento.`;
+			Se você domina a metodologia SCRUM, então você já sabe como a gente trabalha:
+- Você recebe por horas trabalhadas de acordo com o prazo de cada tarefa;
+- Uma Equipe é formada para cada projeto; 
+- Os Contratos e Pagamentos são por Sprint.`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#COBERTURA') > -1){
+		if (lastMsg.toUpperCase().indexOf('#COOPERATIVA') > -1){
 			sendText = `
-			Para Cobertura de tatuagens, venha diretamente ao Studio para que um de nossos profissionais faça uma avaliação.
-			Não é cobrado nada e nem precisa agendar.
-			Mas de qualquer forma já nos envie uma foto da sua Tatuagem e a ideia que você tem de cobertura.`;
-		}
-
-		if (lastMsg.toUpperCase().indexOf('#REFORMA') > -1){
-			sendText = `
-			Para Reforma de tatuagens, nos envie uma foto da tatuagem para avaliarmos o que pode ser feito`;
+			Uma cooperativa é uma sociedade cujo capital é formado pelos associados e tem a finalidade de somar esforços para atingir objetivos comuns que beneficiem a todos.
+			Nós acreditamos que juntos somos mais fortes.`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#PROBLEMAS') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PROMOWHATSBOT') > -1){
 			sendText = `
-			Se você está com problemas de cicatrização mande uma foto, se for necessários faremos o retoque.
-			O Retoque só pode ser feito após um período de 15 dias, o primeiro não é cobrado e a partir do segundo é cobrado um valor de R$100,00.`;
-		}
-
-		if (lastMsg.toUpperCase().indexOf('#ENDERECO') > -1){
-			sendText = `
-			Nós funcionamos de Terça a Sábado das 10h as 20h.
-			Na Rua João Bueno, 155 Jardim Barbosa - Guarulhos/SP
-			Pra ficar mais fácil, subindo a Avenida Tiradentes passando o Mercado Car vire na primeira a direita`;
-		}
-
-		if (lastMsg.toUpperCase().indexOf('#TELEFONE') > -1){
-			sendText = `
-			O número é 11 2279-4817
-			Ligue de Terça a Sábado das 10h as 20h.`;
+			Parabéns, você acaba de ganhar 20% de desconto na criação de um Robô de Atendimento Virtual como Eu.
+			Obrigado por escolher cooperar com o nosso trabalho.
+			
+			Esse robô irá auxilia-lo a responder as perguntas mais frequentes dos seus clientes, por favor, me informe uma lista dessas perguntas para agilizarmos o protótipo.
+			
+			Responda com uma _hashtag (#)_ de acordo com a opção desejada`;
 		}
 
 		if (lastMsg.toUpperCase().indexOf('OI') > -1 
@@ -351,18 +365,15 @@
 		|| lastMsg.toUpperCase().indexOf('E AÍ') > -1
 		|| lastMsg.toUpperCase().indexOf('E AI') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
-			sendText = `Que bom que você entrou em contato com a gente
-Eu sou a atendente virtual do Gugo Tattoo e pretendo agilizar o seu atendimento.
+			sendText = `Que bom que você entrou em contato com a gente.
+Saiba mais sobre nós no site www.cooperdev.com.br
+Eu sou a atendente virtual da COOPERDEV e pretendo agilizar o seu atendimento.
 Responda com uma _hashtag (#)_ de acordo com a opção desejada.
 
+*chatbot*
+*cooperativa*
 *orcamento*
-*agendamento*
-*piercing*
-*cobertura*
-*reforma*
-*problemas*
-*endereco*
-*telefone*`
+*freela*`
 		}
 		
 		// that's sad, there's not to send back...
