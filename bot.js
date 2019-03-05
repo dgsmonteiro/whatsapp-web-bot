@@ -292,7 +292,7 @@
 		}
 		if (lastMsg.toUpperCase().indexOf('#CHATBOT') > -1){
 			sendText = `
-			Chega de ficar copiando e colando mensagens padrão, utilize nosso chatbot no whatsapp e melhore sua comunicação com seu cliente.
+			Chega de ficar escrevendo toda hora a mesma mensagem pra vários contatos, utilize nosso chatbot no whatsapp e melhore sua comunicação com seu cliente.
 			
 			
 			Responda com uma _hashtag (#)_ de acordo com a opção desejada
@@ -300,7 +300,7 @@
 			*saberMais*
 			*contratar*`;
 		}
-		if (lastMsg.toUpperCase().indexOf('#PRECO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#PRECO') > -1 || lastMsg == 1){
 			sendText = `
 			O valor pode variar de acordo com a quantidade de fluxos e a profundidade de cada um deles.
 			Quanto maior o robô, maior é o preço cobrado na sua criação.
