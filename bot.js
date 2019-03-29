@@ -306,17 +306,17 @@
 
 		// what to answer back?
 		let sendText
-		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1 || lastMsg == 1){
 			sendText = `
 			O preço da consulta é R$120,00.
 			É muito importante avaliar o andamento do tratamento, por isso fazemos o pacote promocional Consulta + Exame de Bio Impedância por R$150,00`;
 		}
-		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1){
+		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1 || lastMsg == 2){
 			sendText = `
 			Acesse o endereço da minha página de agendamentos: http://nutri.tatiane.ntr.br/agendamento`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#SAFRADOMES') > -1){
+		if (lastMsg.toUpperCase().indexOf('#SAFRADOMES') > -1  || lastMsg == 3){
 			sendText = `
 			Observe as frutas e verduras que são da *Safra do mês* para economizar e comprar produtos de melhor qualidade!
 			Responda uma _hashtag (#)_ com o nome do mês que você quer saber.
@@ -336,7 +336,7 @@
 *Dezembro*`;
 		}
 		
-		if (lastMsg.toUpperCase().indexOf('#DICASDANUTRI') > -1){
+		if (lastMsg.toUpperCase().indexOf('#DICASDANUTRI'  || lastMsg == 4) > -1){
 			sendText = `
 			To de folga`;
 		}
@@ -384,15 +384,18 @@
 		|| lastMsg.toUpperCase().indexOf('EAI') > -1
 		|| lastMsg.toUpperCase().indexOf('EAE') > -1
 		|| lastMsg.toUpperCase().indexOf('OPA') > -1
+		|| lastMsg.toUpperCase().indexOf('DRA. TATIANE') > -1
+		|| lastMsg.toUpperCase().indexOf('OPA') > -1
 		|| lastMsg.toUpperCase().indexOf('E AE') > -1){
 			sendText = `Seja Bem Vindo ${title}
+			
 			Que bom que entrou em contato comigo! Sou a atendente virtual da Nutricionista Tatiane Ribeiro e pretendo agilizar o seu atendimento.
-			Responda com uma _hashtag (#)_ de acordo com a opção desejada.
+			Responda com a opção desejada.
 
-			*orcamento*
-			*agendamento*
-			*safraDoMes*
-			*dicasDaNutri*`
+			*1 Orçamento*
+			*2 Agendamento*
+			*3 Safra do Mês*
+			*4 Dicas da Nutri*`
 		}
 		
 		// that's sad, there's not to send back...
