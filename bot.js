@@ -309,7 +309,7 @@
 		if (lastMsg.toUpperCase().indexOf('#ORCAMENTO') > -1 || lastMsg == 1){
 			sendText = `
 			O preço da consulta é R$120,00.
-			É muito importante avaliar o andamento do tratamento, por isso fazemos o pacote promocional Consulta + Exame de Bio Impedância por R$155,00`;
+			É muito importante avaliar o andamento do tratamento, por isso fazemos o pacote promocional Consulta + Exame de Bioimpedância por R$155,00`;
 		}
 		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1 || lastMsg == 2){
 			sendText = `
