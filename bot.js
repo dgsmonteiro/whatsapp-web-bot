@@ -5,12 +5,12 @@
 	var lastMessageOnChat = false;
 	var ignoreLastMsg = {};
 	var elementConfig = {
-		"chats": [1, 0, 5, 2, 0, 3, 0, 0, 0],
+		"chats": [0, 0, 5, 2, 0, 3, 0, 0, 0],
 		"chat_icons": [0, 0, 1, 1, 1, 0],
 		"chat_title": [0, 0, 1, 0, 0, 0, 0],
 		"chat_lastmsg": [0, 0, 1, 1, 0, 0],
 		"chat_active": [0, 0],
-		"selected_title": [1, 0, 5, 3, 0, 1, 1, 0, 0, 0, 0]
+		"selected_title": [0, 0, 5, 3, 0, 1, 1, 0, 0, 0, 0]
 	};
 
 	const jokeList = [
@@ -294,7 +294,7 @@
 		if (!processLastMsgOnChat){
 			title = getElement("chat_title",chat).title + '';
 			console.log(title, 'title');
-			lastMsg = (getElement("chat_lastmsg", chat) || { innerText: '' }).innerText.trim(); //.last-msg returns null when some user is typing a message to me
+			lastMsg = (getElement("chat_lastmsg", chat) || { innerText: '' }).title.replace(/[\u2000-\u206F]/g, ""); //.last-msg returns null when some user is typing a message to me
 		} else {
 			title = getElement("selected_title").title;
 		}
