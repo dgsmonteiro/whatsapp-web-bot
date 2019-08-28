@@ -313,7 +313,7 @@
 		}
 		if (lastMsg.toUpperCase().indexOf('#AGENDAMENTO') > -1 || lastMsg == 2){
 			sendText = `
-			Acesse o endereço da minha página de agendamentos: http://nutri.tatiane.ntr.br/agendamento`;
+			Acesse o endereço da minha página de agendamentos: https://www.tatiane.ntr.br/agendamento`;
 		}
 		
 		if (lastMsg.toUpperCase().indexOf('#SAFRADOMES') > -1  || lastMsg == 3){
